@@ -8,7 +8,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-API_BASEURL = "http://127.0.0.1:800 "
+API_BASEURL = "http://10.22.3.234"
 
 ROOT_ID = "069cb8d7-bbdd-47d3-ad8f-82ef4c269df1"
 
@@ -602,16 +602,16 @@ def delete_my():
 
 def test_all():
     test_import()
-    test_nodes()
-    test_sales()
-    test_stats()
-    test_delete()
-    print('____________')
-    print('Your tests:')
+    # test_nodes()
+    # test_sales()
+    # test_stats()
+    # test_delete()
+    # print('____________')
+    # print('Your tests:')
     test_import(my=True)
-    test_mysales()
-    test_mystats()
-    delete_my()
+    # test_mysales()
+    # test_mystats()
+    # delete_my()
 
 
 def main():
