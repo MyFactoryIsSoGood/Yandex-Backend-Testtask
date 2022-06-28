@@ -10,7 +10,7 @@ def unit_serializer(unit: ShopUnit, sales=False):
                 'name': unit.name,
                 'type': unit.type,
                 'parentId': unit.parentId_id,
-                'date': unit.date.strftime("%Y-%m-%dT%H:%M:%S.%S0Z"),
+                'date': unit.date.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + 'Z',
                 'price': unit.price
                 }
     if not sales:

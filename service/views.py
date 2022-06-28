@@ -18,7 +18,7 @@ def imports(request):
     if request.method == 'POST':
         if valid_query(request.data):
             date = request.data['updateDate']
-            date = parser.parse(date).strftime("%Y-%m-%dT%H:%M:%S.%S0Z")
+            date = parser.parse(date).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3]+'Z'
             for unit in request.data['items']:  # Проверяем и формируем список объектов на публикацию
                 if valid_item(unit, units_to_post):
                     try:
@@ -118,7 +118,7 @@ def sales(request):
                 return Response(CONTENT_400, status=status.HTTP_400_BAD_REQUEST)
             date = request.query_params['date']
             if is_date(date):
-                date = parser.parse(date).strftime("%Y-%m-%dT%H:%M:%S.%S0Z")
+                date = parser.parse(date).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3]+'Z'
                 date = parser.parse(date)
 
                 start_time = date - timedelta(days=1)
@@ -153,11 +153,11 @@ def node_stats(request, unit_id):
             return Response(CONTENT_400, status=status.HTTP_400_BAD_REQUEST)
 
         start = request.query_params['dateStart']
-        start = parser.parse(start).strftime("%Y-%m-%dT%H:%M:%S.%S0Z")
+        start = parser.parse(start).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3]+'Z'
         start = parser.parse(start)
 
         end = request.query_params['dateEnd']
-        end = parser.parse(end).strftime("%Y-%m-%dT%H:%M:%S.%S0Z")
+        end = parser.parse(end).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3]+'Z'
         end = parser.parse(end)
 
         try:
