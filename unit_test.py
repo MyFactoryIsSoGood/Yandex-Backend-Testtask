@@ -602,13 +602,13 @@ def delete_my():
 
 def test_all():
     test_import()
+    test_import(my=True)
     # test_nodes()
     # test_sales()
     # test_stats()
     # test_delete()
     # print('____________')
     # print('Your tests:')
-    test_import(my=True)
     # test_mysales()
     # test_mystats()
     # delete_my()
